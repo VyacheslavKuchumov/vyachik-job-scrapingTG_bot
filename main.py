@@ -20,7 +20,7 @@ logging.basicConfig(
 )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Отвечаю на русском и ангийском юноу. (ПЫ.СЫ. ребята пожелейте мою видюху и счет за электроэнергию много не пишите ахвхахва)")
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Отвечаю на русском и английском юноу. (ПЫ.СЫ. ребята пожелейте мою видюху и счет за электроэнергию много не пишите ахвхахва)")
 
 async def answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_prompt = update.message.text
