@@ -145,10 +145,31 @@ class ApiHhRu:
             logging.error("No professional roles found.")
             return
 
+        # Initialize a set to store unique role IDs
+        unique_role_ids = set()
+
+        # Filter the professional roles beforehand
+        filtered_roles = []
+
+        # Iterate over each category to extract roles with unique IDs
+        for category in professional_roles:
+            unique_roles_in_category = []
+            for role in category['roles']:
+                role_id = role['id']
+                if role_id not in unique_role_ids:
+                    unique_role_ids.add(role_id)
+                    unique_roles_in_category.append(role)
+            # Add category with filtered roles if it has any
+            if unique_roles_in_category:
+                filtered_roles.append({
+
+                    'roles': unique_roles_in_category
+                })
+
         for area in areas:
             bot_send_message(message=f"Processing area {area['name']} (ID: {area['id']})")
             logging.info(f"Processing area {area['name']} (ID: {area['id']})")
-            for category in professional_roles:
+            for category in filtered_roles:
                 for role in category['roles']:
                     bot_send_message(message=f"Fetching vacancies for role {role['name']} (ID: {role['id']})")
                     logging.info(f"Fetching vacancies for role {role['name']} (ID: {role['id']})")
