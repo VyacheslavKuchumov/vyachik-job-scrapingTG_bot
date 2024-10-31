@@ -164,3 +164,4 @@ cython_debug/
 
 SECRET.py
 bot.log
+.csv
