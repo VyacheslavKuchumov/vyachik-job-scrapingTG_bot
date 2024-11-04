@@ -26,7 +26,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def scrape(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Сбор данных запущен...")
-    job_api = ApiHhRu(token=HH_RU_TOKEN, areas=['Пермский край', 'Свердловская область', 'Приморский край'])
+    job_api = ApiHhRu(token=HH_RU_TOKEN, areas=['Пермский край', 'Свердловская область'])
     job_api.fetch_and_store_vacancies()
 
 
