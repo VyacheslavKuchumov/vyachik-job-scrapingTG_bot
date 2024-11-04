@@ -166,3 +166,6 @@ SECRET.py
 bot.log
 
 *.csv
+/bin
+lib64
+*.cfg
