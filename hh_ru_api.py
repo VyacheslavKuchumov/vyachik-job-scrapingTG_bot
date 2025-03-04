@@ -16,6 +16,7 @@ import json
 from SECRET import TELEGRAM_TOKEN
 
 def bot_send_message( message, chat_id=vyachik_id, bot_token=TELEGRAM_TOKEN):
+    return
     url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
     params = {
         'chat_id': chat_id,
